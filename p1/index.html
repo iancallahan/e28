@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Rock, Paper, Scissors</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/augmented-ui/augmented.css"
+    />
+    <link rel="stylesheet" href="css/game.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+    <script src="js/game.js" defer></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <h1 augmented-ui="br-clip exe" class="scanline">Rock, Paper, Scissors</h1>
+      <section class="controls">
+        <button
+          class="choice"
+          augmented-ui="t-clip-x exe"
+          v-for="(item, index) in choices"
+          v-on:click="scoreIt(item)"
+        >
+          {{ index }}
+        </button>
+      </section>
+      <section class="scoring">
+        <div augmented-ui="l-clip-y exe" class="score human">
+          <span>HMN</span>
+          <span id="humanScore" class="tally">{{ humanScore }}</span>
+        </div>
+        <div v-html="verdict" class="verdict scanline"></div>
+        <div augmented-ui="r-clip-y exe" class="score computer">
+		  <span>CMP</span>
+		  <span id="compScore" class="tally">{{ compScore }}</span>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
