@@ -1,0 +1,28 @@
+@font-face {
+  font-family: "Checkbook";
+  src: url(/fonts/Checkbook.woff2?73747e90a1c7cc804950fde148263267) format("woff2"), url(/fonts/Checkbook.woff?1cd94a6957980071c36856e9b2e1fd06) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Checkbook";
+  background-color: black;
+  color: white;
+  height: 100%;
+  width: 100%;
+  font-size: 2em;
+}
+
+#app {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
