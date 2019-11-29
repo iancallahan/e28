@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import ViewPosts from './components/pages/ViewPosts.vue';
 import PostPage from './components/pages/PostPage.vue';
+import ViewFavs from './components/pages/ViewFavs.vue';
 import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
@@ -13,7 +14,7 @@ const routes = [
   { path: '/post/:id', component: PostPage, name: 'post', props:true},
   { path: '/category/:category', component: ViewPosts, name: 'category', props:true},
   { path: '/tag/:tag', component: ViewPosts, name: 'tag', props:true},
-  { path: '/favorites', component: ViewPosts, name: 'favorites', props:{default: true, favorites: true}}
+  { path: '/favorites', component: ViewFavs, name: 'favorites', props:{default: true, favorites: true}}
 ]
 
 const router = new VueRouter({
