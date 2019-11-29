@@ -2,8 +2,8 @@
   <div id="app">
     <nav>
      <ul>
-       <li><router-link exact :to='{ name: home }'>Home</router-link></li>
-       <li><router-link exact :to='{ name: favorites }'>Favorites</router-link></li>
+       <li><router-link exact :to='{ name: "home" }'>Home</router-link></li>
+       <li><router-link exact :to='{ name: "favorites" }'>Favorites</router-link></li>
      </ul>
     </nav>
     <router-view></router-view>  
