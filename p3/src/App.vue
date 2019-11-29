@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <nav>
+    <h1>The Blog of Blogs</h1>
+    <nav id="navigation">
      <ul>
        <li><router-link exact :to='{ name: "home" }'>Home</router-link></li>
        <li><router-link exact :to='{ name: "favorites" }'>Favorites</router-link></li>
@@ -25,4 +26,16 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+#navigation ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#navigation li {
+  text-decoration: none;
+  margin-right: 2em;
+}
+
 </style>

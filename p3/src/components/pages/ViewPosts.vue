@@ -1,8 +1,10 @@
 <template>
 <div v-if="initialized">
-  <div class="post" v-for="(post, index) in posts" v-bind:key="index">
-    <h2><router-link exact :to='{name: "post", params: {id:post.index}}'>{{post.title}}</router-link></h2>
-    <div class="post-meta">Published {{post.date}} in <router-link exact :to='{ name: "category", params: {category: post.category}}'>{{post.category.toUpperCase() + "S"}}</router-link></div>
+  <div class="posts">
+    <div class="post" v-for="(post, index) in posts" v-bind:key="index">
+      <h2><router-link exact :to='{name: "post", params: {id:post.index}}'>{{post.title}}</router-link></h2>
+      <div class="post-meta">Published {{post.date}} in <router-link exact :to='{ name: "category", params: {category: post.category}}'>{{post.category.toUpperCase() + "S"}}</router-link></div>
+    </div>
   </div>
 </div>
 </template>
@@ -53,3 +55,20 @@ export default {
   props: ['home','category','tag']
 }
 </script>
+
+<style>
+.post {
+  width: 500px;
+  margin-bottom: 3em;
+  background-color: lightblue;
+  padding: 1em;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+</style>

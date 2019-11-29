@@ -1,20 +1,22 @@
 <template>
-  <div id="post-view" v-if="initialized">
-    <h2>{{title}}</h2>
-    <div class="post-meta">Published {{date}} in <router-link exact :to='{ name: "category", params: {category: category}}'>{{category}}</router-link></div>
-    <button v-if="!favorited" v-on:click="saveFavorite()" role="button">Favorite</button>
-    <div v-else class="starred">Favorited!</div>
-    <img :src="image" class="post-image">
-    <div class="post-body">{{body}}</div>
-    <ul class="post-tags"> 
+  <div id="post-container">
+    <div id="post-view" v-if="initialized">
+      <h2>{{title}}</h2>
+      <div class="post-meta">Published {{date}} in <router-link exact :to='{ name: "category", params: {category: category}}'>{{category}}</router-link></div>
+      <button v-if="!favorited" v-on:click="saveFavorite()" role="button">Favorite</button>
+      <div v-else class="starred">Favorited!</div>
+      <img :src="image" class="post-image">
+      <div class="post-body">{{body}}</div>
       <h3>Tags</h3>
-        <li class="post-tag" v-for='(tag, index) in tags' :key='index'>
-            <router-link exact :to='{ name: "tag", params: {tag: tag}}'>{{tag}}</router-link>
-        </li>
-    </ul>
-    <div class="prev-next">
-      <router-link v-if="id > 0" id="prev" exact :to='{name: "post", params: {id:id-1}}'>Previous Post</router-link>
-      <router-link v-if="id < count - 1" id="next" exact :to='{name: "post", params: {id:id+1}}'>Next Post</router-link>
+      <ul class="post-tags"> 
+          <li class="post-tag" v-for='(tag, index) in tags' :key='index'>
+              <router-link exact :to='{ name: "tag", params: {tag: tag}}'>{{tag}}</router-link>
+          </li>
+      </ul>
+      <div class="prev-next">
+        <router-link v-if="id > 0" id="prev" exact :to='{name: "post", params: {id:id-1}}'>Previous Post</router-link>
+        <router-link v-if="id < count - 1" id="next" exact :to='{name: "post", params: {id:id+1}}'>Next Post</router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -88,3 +90,33 @@ export default {
   props: ['id']
 }
 </script>
+
+<style>
+#post-view {
+  width: 700px;
+}
+
+#post-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.post-tags {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-tags li {
+  margin-right: 1em;
+}
+
+.prev-next {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+</style>
