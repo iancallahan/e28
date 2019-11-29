@@ -7,6 +7,7 @@
     <img :src="image" class="post-image">
     <div class="post-body">{{body}}</div>
     <ul class="post-tags"> 
+      <h3>Tags</h3>
         <li class="post-tag" v-for='(tag, index) in tags' :key='index'>
             <router-link exact :to='{ name: "tag", params: {tag: tag}}'>{{tag}}</router-link>
         </li>
