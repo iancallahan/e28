@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
-import ViewPosts from './components/pages/ViewPosts.vue';
+import ViewPosts from './components/ViewPosts.vue';
 import PostPage from './components/pages/PostPage.vue';
-import ViewFavs from './components/pages/ViewFavs.vue';
-import SubmitComplaint from './components/pages/SubmitComplaint.vue';
+import ViewFavs from './components/ViewFavs.vue';
+import ComplaintPage from './components/pages/ComplaintPage.vue';
 import VueRouter from 'vue-router';
 import store from './store'
 import Vuelidate from 'vuelidate'
@@ -18,7 +18,7 @@ const routes = [
   { path: '/category/:category', component: ViewPosts, name: 'category', props:true},
   { path: '/tag/:tag', component: ViewPosts, name: 'tag', props:true},
   { path: '/favorites', component: ViewFavs, name: 'favorites', props:{default: true, favorites: true}},
-  { path: '/complain', component: SubmitComplaint, name: 'complain', props:{default: true}}
+  { path: '/complain', component: ComplaintPage, name: 'complain', props:{default: true}}
 ]
 
 const router = new VueRouter({

@@ -9,6 +9,7 @@
 
 import { required, email } from "vuelidate/lib/validators";
 export default {
+    name: "ComplaintPage",
     data() {
       return {
           email: "",

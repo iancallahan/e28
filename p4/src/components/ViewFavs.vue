@@ -3,8 +3,8 @@
   <div v-if="favorites.length > 0">
     <div v-if="initialized">
       <div class="posts">
-      <div class="post" v-for="(post, index) in posts" v-bind:key="index">
-        <h2><router-link exact :to='{name: "post", params: {id:post.index}}'>{{post.title}}</router-link></h2>
+      <div class="post" data-test="post-listing" v-for="(post, index) in posts" v-bind:key="index">
+        <h2><router-link data-test="post-link" exact :to='{name: "post", params: {id:post.index}}'>{{post.title}}</router-link></h2>
         <div class="post-meta">Published {{post.date}} in <router-link exact :to='{ name: "category", params: {category: post.category}}'>{{post.category.toUpperCase() + "S"}}</router-link></div>
       </div>
     </div>
