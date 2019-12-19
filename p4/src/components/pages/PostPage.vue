@@ -3,8 +3,7 @@
     <div id="post-view" v-if="initialized">
       <h2>{{title}}</h2>
       <div class="post-meta">Published {{date}} in <router-link exact :to='{ name: "category", params: {category: category}}'>{{category}}</router-link></div>
-      <button v-if="!favorited" v-on:click="saveFavorite()" role="button">Favorite</button>
-      <div v-else class="starred">Favorited!</div>
+      <fav-button :id="id"></fav-button>
       <img :src="image" class="post-image">
       <div class="post-body">{{body}}</div>
       <h3>Tags</h3>
@@ -23,9 +22,11 @@
 
 <script>
 import axios from 'axios';
+import FavButton from '../FavButton.vue'
 
 export default {
   name: "PostPage",
+  components: {FavButton},
   data() {
       return {
         title: '',
@@ -38,7 +39,6 @@ export default {
         loading: true,
         error: '',
         count: 0,
-        favorited: false
       }
   },
   created: function () {
@@ -46,7 +46,6 @@ export default {
   },
   watch:{
     id: function () {
-        this.favorited = false;
         this.getData();
     }
   },
@@ -70,23 +69,8 @@ export default {
           this.loading = false;
           this.error = error
         });
-        if (localStorage.getItem("favorites") !== null) {
-         let saved = JSON.parse(localStorage.getItem("favorites"));
-         if(saved.indexOf(this.id) > -1){
-           this.favorited = true;
-         }
-       }
-      },
-     saveFavorite: function() {
-       let favs = [];
-       if (localStorage.getItem("favorites") !== null) {
-         favs = JSON.parse(localStorage.getItem("favorites"));
-       }
-       favs.push(this.id);
-       localStorage.setItem("favorites", JSON.stringify(favs));
-       this.favorited = true;
-     }
     },
+  },
   props: ['id']
 }
 </script>

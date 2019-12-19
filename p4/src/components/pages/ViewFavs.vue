@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div v-if="favs.length > 0">
+  <div v-if="favorites.length > 0">
     <div v-if="initialized">
       <div class="posts">
       <div class="post" v-for="(post, index) in posts" v-bind:key="index">
@@ -26,9 +26,13 @@ export default {
         posts: {},
         initialized: false,
         loading: true,
-        favs: [],
         error: ''
       }
+  },
+  computed: {
+    favorites: function() {
+        return this.$store.state.favorites
+    },
   },
   watch:{
     $route (){
@@ -36,21 +40,13 @@ export default {
     }
   },
   mounted: function () {
-    this.getFavs();
     this.getData();
   },
   methods: {
-      getFavs: function() {
-        let favorites = JSON.parse(localStorage.getItem("favorites"));
-        if(favorites === null){
-          favorites = []
-        }
-        this.favs = favorites;
-      },
       getData: function() {
         axios.get('/db.json')
         .then((response)  =>  {
-               let filteredPosts = response.data.filter(item => this.favs.indexOf(item.index) > -1);
+               let filteredPosts = response.data.filter(item => this.favorites.indexOf(item.index) > -1);
                this.posts = filteredPosts;
                this.initialized = true;
         }, (error)  =>  {

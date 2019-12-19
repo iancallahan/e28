@@ -1,10 +1,12 @@
 <template>
   <div id="app">
     <h1>The Blog of Blogs</h1>
+    <h2>Grievances Filed: {{complaints}}</h2>
     <nav id="navigation">
      <ul>
        <li><router-link exact :to='{ name: "home" }'>Home</router-link></li>
        <li><router-link exact :to='{ name: "favorites" }'>Favorites</router-link></li>
+       <li><router-link exact :to='{ name: "complain" }'>Complain</router-link></li>
      </ul>
     </nav>
     <router-view></router-view>  
@@ -14,6 +16,11 @@
 <script>
 export default {
   name: 'app',
+  computed: {
+     complaints: function() {
+        return this.$store.state.complaints
+    },
+  },
 }
 </script>
 
