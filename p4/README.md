@@ -1,21 +1,15 @@
-# Project 3
+# Project 4
 + By: Ian Callahan
 + Production URL: <http://p3.iancallahan.dev>
 
-
-## Outline of features
-I chose to create an (admittedly very ugly) blog SPA that implements: 
-*Homepage that shows a list of posts
-*Show an individual post
-*Filter posts by categories
-*Option to go to previous/next posts
-*Add a post to favorites list (local storage)
-*View favorites list
-
+## Improvements based on P3 peer review feedback
+-Prettified code
+-Reorganized pages/components
+-Appreciated feedback about data properties and objects but decided to leave as-is because the real issue is that I'm not using a real server/API that can deal with individual requests. This is the structure I would prefer for those requests if they were not being faked here. 
 
 ## Outside resources
-I used JSON Generator: <https://www.json-generator.com/>
-This Stack Overflow helped me debug filtering: <https://stackoverflow.com/questions/2722159/how-to-filter-object-array-based-on-attributes>
+-This GitHub issue helped me figure out how to deal with my complaint confirm dialog in e2e testing: <https://github.com/cypress-io/cypress/issues/621>
+
 
 ## Notes for instructor
-Sorry it's late once again!
+Thanks for a great class. Had some crazy family stuff going on so I appreciate your generous late policy. And the way you structured the notes/class website was very helpful. 
