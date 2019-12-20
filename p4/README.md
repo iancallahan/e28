@@ -5,6 +5,7 @@
 ## Improvements based on P3 peer review feedback
 -Prettified code
 -Reorganized pages/components
+-Gave the favorite button more normal behavior
 -Appreciated feedback about data properties and objects but decided to leave as-is because the real issue is that I'm not using a real server/API that can deal with individual requests. This is the structure I would prefer for those requests if they were not being faked here. 
 
 ## Outside resources
